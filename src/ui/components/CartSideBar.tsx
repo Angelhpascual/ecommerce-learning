@@ -8,6 +8,7 @@ export const CartSidebar = () => {
     toggleCart,
     removeFromCart,
     addToCart,
+    decreaseQuantity,
     clearCart,
     totalPrice,
   } = useCartStore()
@@ -71,7 +72,7 @@ export const CartSidebar = () => {
                     <div className="flex flex-1 items-end justify-between text-sm">
                       <div className="flex items-center gap-3 bg-gray-50 rounded-lg p-1">
                         <button
-                          onClick={() => removeFromCart(item.product.id)}
+                          onClick={() => decreaseQuantity(item.product.id)}
                           className="p-1 hover:bg-white rounded-md shadow-sm transition-all"
                         >
                           <Minus className="w-4 h-4" />

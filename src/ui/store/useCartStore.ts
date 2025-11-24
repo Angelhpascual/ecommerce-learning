@@ -8,6 +8,7 @@ interface CartState {
 
   addToCart(product: Product): void
   removeFromCart(productId: number): void
+  decreaseQuantity(productId: number): void
   toggleCart(): void
   clearCart(): void
 
@@ -38,6 +39,22 @@ export const useCartStore = create<CartState>((set, get) => ({
     set({
       items: get().items.filter((i) => i.product.id !== productId),
     })
+  },
+
+  decreaseQuantity: (productId: number) => {
+    const { items } = get()
+    const existingItem = items.find((i) => i.product.id === productId)
+
+    if (existingItem && existingItem.quantity > 1) {
+      set({
+        items: items.map((i) =>
+          i.product.id === productId ? { ...i, quantity: i.quantity - 1 } : i
+        ),
+      })
+    } else {
+      // Si la cantidad es 1, lo eliminamos
+      get().removeFromCart(productId)
+    }
   },
 
   toggleCart: () => set({ isOpen: !get().isOpen }),
