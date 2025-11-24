@@ -1,6 +1,8 @@
 import { useEffect } from "react"
 import { useProductStore } from "@ui/store/useProductStore"
 import { ProductCard } from "@ui/components/ProductCard"
+import { CartIcon } from "@ui/components/CartIcon"
+import { CartSidebar } from "@ui/components/CartSideBar"
 
 function App() {
   const { products, isLoading, error, fetchProducts } = useProductStore()
@@ -12,9 +14,12 @@ function App() {
   return (
     <main className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-3xl font-bold text-gray-900 mb-8">
-          E-commerce DDD
-        </h1>
+        <div className="flex items-center justify-between mb-8">
+          <h1 className="text-3xl font-bold text-gray-900">E-commerce DDD</h1>
+          <div className="flex items-center gap-2">
+            <CartIcon />
+          </div>
+        </div>
 
         {isLoading && (
           <div className="flex justify-center py-20">
@@ -34,6 +39,8 @@ function App() {
           ))}
         </div>
       </div>
+
+      <CartSidebar />
     </main>
   )
 }
