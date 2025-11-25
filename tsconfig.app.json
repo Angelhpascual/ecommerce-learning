@@ -22,7 +22,15 @@
     "noUnusedParameters": true,
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+    "baseUrl": ".",
+    "paths": {
+      "@domain/*": ["src/domain/*"],
+      "@infrastructure/*": ["src/infrastructure/*"],
+      "@application/*": ["src/application/*"],
+      "@ui/*": ["src/ui/*"],
+      "@assets/*": ["src/assets/*"]
+    }
   },
   "include": ["src"]
 }
