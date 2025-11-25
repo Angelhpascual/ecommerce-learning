@@ -1,7 +1,7 @@
 import type { ProductRepository } from "@domain/repositories/ProductRepository"
 import { Price } from "@domain/value-objects/Price"
 import { describe, expect, it, vi } from "vitest"
-import { GetProducts } from "./GetProducts"
+import { GetProducts } from "../GetProducts"
 
 describe("GetProducts Use Case", () => {
   it("should return products from the repository", async () => {

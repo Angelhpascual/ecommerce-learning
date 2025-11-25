@@ -1,6 +1,6 @@
 import { expect, it } from "vitest"
 import { describe } from "vitest"
-import { Price } from "./Price"
+import { Price } from "../Price"
 
 describe("Price", () => {
   it("should create a Price instance", () => {
